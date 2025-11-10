@@ -6,17 +6,27 @@ const BASE_URL = `https://api.telegram.org/bot${MY_TOKEN}`
 function getAxiosInstance(){
     return{
         get(method, params){
-            return axios.get(`/${method}`, {
+            const req = axios.get(`/${method}`, {
                 baseURL: BASE_URL,
                 params,
             });
+            return req.catch(err => {
+                const info = err && err.response ? { status: err.response.status, data: err.response.data } : { message: err.message };
+                console.error('TELEGRAM ERROR GET', method, info);
+                throw err;
+            });
         },
         post(method, data){
-            return axios({
+            const req = axios({
                 method: "post",
                 baseURL: BASE_URL,
                 url: `/${method}`,
                 data,
+            });
+            return req.catch(err => {
+                const info = err && err.response ? { status: err.response.status, data: err.response.data } : { message: err.message };
+                console.error('TELEGRAM ERROR POST', method, info);
+                throw err;
             });
         },
     };

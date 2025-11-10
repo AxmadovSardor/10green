@@ -6,11 +6,12 @@ const app = express();
 app.use(express.json());
 // use RegExp routes to match any path (avoids path-to-regexp error for unnamed '*')
 app.post(/.*/, async (req, res) => {
-    console.log(req.body);
-    res.send(await handler(req));
+    await handler(req);
+    res.sendStatus(200);
 });
 app.get(/.*/, async (req, res) => {
-    res.send(await handler(req));
+    await handler(req);
+    res.sendStatus(200);
 });
 
 app.listen(PORT, function (err) {
