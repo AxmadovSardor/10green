@@ -1,5 +1,7 @@
 // controller/lib/ai.js
-
+const date = new Date();
+const now = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()+ " on "+ date.toDateString()
+console.log("AI module loaded at", now);
 const fs = require("fs");
 const path = require("path");
 const dotenv = require("dotenv");
@@ -35,7 +37,7 @@ console.log(`✅ Loaded ${files.length} text file(s) from ./data`);
 // 💬 Core function — use local context if available, otherwise fallback to general knowledge
 async function getAIResponse(userText) {
   try {
-    const prompt = `If this context contains the answer, use it. Otherwise, answer from your general knowledge.
+    const prompt = `If this context contains the answer, use it. Otherwise, answer from your general knowledge. Time now is ${now}.
 
 Context:
 ${textData.slice(0, 5000)}
