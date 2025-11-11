@@ -37,7 +37,7 @@ console.log(`✅ Loaded ${files.length} text file(s) from ./data`);
 // 💬 Core function — use local context if available, otherwise fallback to general knowledge
 async function getAIResponse(userText) {
   try {
-    const prompt = `If this context contains the answer, use it. Otherwise, answer from your general knowledge. Time now is ${now}.
+    const prompt = `If this context contains the answer, use it. Otherwise, answer from your general knowledge. Time now is ${now} in UTC+5.
 
 Context:
 ${textData.slice(0, 5000)}
