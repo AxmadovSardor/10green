@@ -1,4 +1,3 @@
-const { getAIResponse } = require("./ai");
 const { axiosInstance } = require("./axios");
 
 function sendMessages(messageObj, messageText) {
@@ -8,6 +7,22 @@ function sendMessages(messageObj, messageText) {
     return axiosInstance.get("sendMessage", {
         chat_id: chatId,
         text: String(messageText || ""),
+    });
+}
+function sendPicture(params) {
+    const chatId = getChatId(params.message);
+    if (!chatId) return Promise.reject(new Error("Missing chat id for sendPicture"));
+    return axiosInstance.get("sendPhoto", {
+        chat_id: chatId,
+        photo: params.photo,
+    });
+}
+function Timetable(params) {
+    const chatId = params.message;
+    if (!chatId) return Promise.reject(new Error("Missing chat id for sendPicture"));
+    return axiosInstance.get("sendPhoto", {
+        chat_id: chatId,
+        photo: "https://photos.app.goo.gl/Dj3sm8Gz16vTUZcGA",
     });
 }
 
@@ -22,14 +37,7 @@ function sendChatAction(chatId, action = "typing") {
         action,
     });
 }
-function sendMtoAsad( messageText) {
-    // Telegram's chat id is usually at message.chat.id
-    const chatId = 5044025550;
-    return axiosInstance.get("sendMessage", {
-        chat_id: chatId,
-        text: String(messageText || ""),
-    });
-}
+
 function sendMtoUser(messageObj, messageText) {
     // Telegram's chat id is usually at message.chat.id
     const chatId = messageObj;
@@ -72,42 +80,56 @@ async function handleMessage(messageObj) {
         console.log("Received command:", command);
         switch (command) {
             case "start":
-                return sendMessages(messageObj, "Welcome to the Assistant bot of <b>Karshi Presidential school</b>! My name is Sardor.");
+                return sendMessages(messageObj, "Welcome! Use /help to see available commands.");
             case "help":
-                return sendMessages(messageObj, "Available commands: /start, /help");
+                return sendMessages(messageObj, "Available commands: /start, /timetable");
             case "asad":
-                return sendMtoAsad(messageText.replace("/asad ", ""));
+                try {
+                    return sendMtoAsad(messageText.replace("/asad ", ""));
+                } catch (err) {
+                    console.log(err)
+                    return sendMessages(messageObj, "nimadur")
+                }
             case "toUser":
-                return sendMtoUser(messageText.replace("/toUser ", "").split(":")[0], messageText.replace("/toUser ", "").replace(messageText.replace("/toUser ", "").split(":")[0], "Admin"));
+                sendMessages(messageObj, "Sent!")
+                try{
+                    return sendMtoUser(messageText.replace("/toUser ", "").split(":")[0], messageText.replace("/toUser ", "").replace(messageText.replace("/toUser ", "").split(":")[0], "Admin"));
+                } catch (err) {
+                    console.log(err)
+                    sendMessages(messageObj, "nimadur xato")
+                }
             case "ques":
                 return question(messageObj, messageText.replace("/ques ", ""));
+            case "photo":
+                return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
+            case "timetable":
+                sendMessages(messageObj,"Here is the timetable:")
+                if (messageText.replace("/timetable", "").trim() === "") {
+                    return Timetable({ message: chatId });
+                }else{
+                    let day = messageText.replace("/timetable ", "").trim()
+                    switch (day) {
+                        case "monday":
+                            // Handle Monday timetable
+                            break;
+                        case "tuesday":
+                            
+                            break;
+                        case "wednesday":
+                            break;
+                        case "thursday":
+                            break;
+                        case "friday":
+                            break;
+                        default:
+                            return sendMessages(messageObj, `Unknown day: ${day}`);
+                    }
+                }
             default:
                 return sendMessages(messageObj, `Unknown command: ${command}`);
         }
     } else {
-        // Send periodic 'typing' chat actions while AI is processing.
-        const chatId = getChatId(messageObj);
-        let typingInterval = null;
-
-        if (chatId) {
-            // Send initial typing action immediately, then every 3s
-            sendChatAction(chatId, "typing").catch(() => {});
-            typingInterval = setInterval(() => sendChatAction(chatId, "typing").catch(() => {}), 3000);
-        }
-
-        try {
-            const aiText = await getAIResponse(messageText);
-            console.log("AI response:", aiText);
-
-            if (typingInterval) clearInterval(typingInterval);
-
-            return sendMessages(messageObj, aiText || "");
-        } catch (err) {
-            console.error("AI handler error:", err);
-            if (typingInterval) clearInterval(typingInterval);
-            // Fallback message to the user
-            return sendMessages(messageObj, "Sorry, I couldn't process that right now.");
-        }
+        return
     }
 }
 
