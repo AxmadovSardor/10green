@@ -79,9 +79,9 @@ async function handleMessage(messageObj) {
         const command = messageText.substr(1).split(" ")[0];
         console.log("Received command:", command);
         switch (command) {
-            case "start":
+            case "start" || "start@tengtt_bot":
                 return sendMessages(messageObj, "Welcome! Use /help to see available commands.");
-            case "help":
+            case "help" || "help@tengtt_bot":
                 return sendMessages(messageObj, "Available commands: /start, /timetable");
             case "asad":
                 try {
@@ -102,7 +102,7 @@ async function handleMessage(messageObj) {
                 return question(messageObj, messageText.replace("/ques ", ""));
             case "photo":
                 return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
-            case "timetable":
+            case "timetable" || "help@tengtt_bot":
                 sendMessages(messageObj,"Here is the timetable:")
                 if (messageText.replace("/timetable", "").trim() === "") {
                     return Timetable({ message: chatId });
