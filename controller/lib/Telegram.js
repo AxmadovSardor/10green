@@ -127,7 +127,7 @@ async function handleMessage(messageObj) {
                     }
                 }
             case "updatelog":
-                return sendMessages(messageObj, "Bot currently runs on 1.02 published 01.02.2026 at 20:54 \n \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
+                return sendMessages(messageObj, "Bot currently runs on 1.02.13 published 01.02.2026 at 22:19 \n \n💠01.02.01 - 01.02.2026; 20:54 \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
 
             default:
                 return sendMessages(messageObj, `Unknown command: ${command}`);
