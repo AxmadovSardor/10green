@@ -1,5 +1,5 @@
 const tengreen = {
-    monday: ["Kelajak soati - 104",
+    "monday": ["Kelajak soati - 104",
         "Computer Science - 104 / Physics - 201 / Biology - 202",
         "Computer Science - 104 / Physics - 201 / Biology - 202",
         "Math - 102",
@@ -8,7 +8,7 @@ const tengreen = {
         "Physical Education - Sports Hall",
         "Computer Science - 102 / Physics - 201 / Biology - 202 (204)"
     ],
-    tuesday: [
+    "tuesday": [
         "Math - 101",
         "History - 106",
         "Chemistry - 203 / Economics - Conference room / Computer Science - 104",
@@ -18,7 +18,7 @@ const tengreen = {
         "Russian - 108 <Biology>",
 
     ],
-    wednesday: [
+    "wednesday": [
         "Chemistry - 203 / Economics - 106 / Computer Science - 104",
         "Chemistry - 203 / Economics - 106 / Computer Science - 104",
         "Math - 109",
@@ -28,7 +28,7 @@ const tengreen = {
         "Math - 109",
         "English - 105"
     ],
-    thursday:[
+    "thursday":[
         "Chemistry - 203 / Economics - 106 / Computer Science - 104",
         "Chemistry - 203 / Economics - 106 / Computer Science - 104",
         "Computer Science - 102 / Physics - 201 / Biology - 202",
@@ -38,7 +38,7 @@ const tengreen = {
         "Computer Science - 104",
         "Economics - Confirence room"
     ],
-    friday:[
+    "friday":[
         "Computer Science - 104 / Physics - 201 / Biology - 202",
         "Computer Science - 104 / Physics - 201 / Biology - 202",
         "Native Language - 204",
