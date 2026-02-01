@@ -99,6 +99,23 @@ function timer(day, params) {
     return organized;
 }
 
+function numtochar(params) {
+    switch (params) {
+        case 1:
+            return "monday";
+        case 2:
+            return "tuesday";
+        case 3:
+            return "wednesday";
+        case 4:
+            return "thursday";
+        case 5:
+            return "friday";
+        default:
+            return "unknown";
+    }
+}
+
 let weekdays = [
     "monday", "tuesday", "wednesday", "thursday", "friday"
 ]
