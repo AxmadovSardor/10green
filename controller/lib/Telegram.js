@@ -10,20 +10,13 @@ function sendMessages(messageObj, messageText) {
         text: String(messageText || ""),
     });
 }
-function sendPicture(params) {
-    const chatId = getChatId(params.message);
-    if (!chatId) return Promise.reject(new Error("Missing chat id for sendPicture"));
-    return axiosInstance.get("sendPhoto", {
-        chat_id: chatId,
-        photo: params.photo,
-    });
-}
+
 function Timetable(params) {
     const chatId = params.message;
     if (!chatId) return Promise.reject(new Error("Missing chat id for Timetable"));
     return axiosInstance.get("sendPhoto", {
         chat_id: chatId,
-        photo: "https://photos.app.goo.gl/Dj3sm8Gz16vTUZcGA",
+        photo: "https://photos.app.goo.gl/MJ1xdhpTVi3o4mceA",
     });
 }
 
@@ -101,8 +94,6 @@ async function handleMessage(messageObj) {
                 }
             case "ques":
                 return question(messageObj, messageText.replace("/ques ", ""));
-            case "photo":
-                return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
             case "timetable":
                 sendMessages(messageObj,"Here is the timetable:")
                 if (messageText.replace("/timetable", "").trim() === "") {
@@ -127,7 +118,7 @@ async function handleMessage(messageObj) {
                     }
                 }
             case "updatelog":
-                return sendMessages(messageObj, "Bot currently runs on 1.02.13 published 01.02.2026 at 22:19 \n \n💠01.02.01 - 01.02.2026; 20:54 \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
+                return sendMessages(messageObj, "Bot currently runs on 1.02.14 published 01.02.2026 at 22:42 \n \n💠01.02.13 - 01.02.2026; 22:19\n💠01.02.01 - 01.02.2026; 20:54 \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
 
             default:
                 return sendMessages(messageObj, `Unknown command: ${command}`);
