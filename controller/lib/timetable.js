@@ -131,14 +131,14 @@ function fulltime() {
     15:20 - 16:10 : ${tengreen.monday[7] || "Free"}\n
     \n`;
     full += `Time table for Tuesday: \n
-    08:30 - 09:15 : ${tengreen.Tuesday[0] || "Free"}\n
-    09:20 - 10:05 : ${tengreen.Tuesday[1] || "Free"}\n
-    10:10 - 10:55 : ${tengreen.Tuesday[2] || "Free"}\n
-    11:15 - 12:00 : ${tengreen.Tuesday[3] || "Free"}\n
-    12:05 - 12:50 : ${tengreen.Tuesday[4] || "Free"}\n
-    13:45 - 14:30 : ${tengreen.Tuesday[5] || "Free"}\n
-    14:30 - 15:15 : ${tengreen.Tuesday[6] || "Free"}\n
-    15:20 - 16:10 : ${tengreen.Tuesday[7] || "Free"}\n
+    08:30 - 09:15 : ${tengreen.tuesday[0] || "Free"}\n
+    09:20 - 10:05 : ${tengreen.tuesday[1] || "Free"}\n
+    10:10 - 10:55 : ${tengreen.tuesday[2] || "Free"}\n
+    11:15 - 12:00 : ${tengreen.tuesday[3] || "Free"}\n
+    12:05 - 12:50 : ${tengreen.tuesday[4] || "Free"}\n
+    13:45 - 14:30 : ${tengreen.tuesday[5] || "Free"}\n
+    14:30 - 15:15 : ${tengreen.tuesday[6] || "Free"}\n
+    15:20 - 16:10 : ${tengreen.tuesday[7] || "Free"}\n
     \n`;
     full += `Time table for Wednesday: \n
     08:30 - 09:15 : ${tengreen.wednesday[0] || "Free"}\n
