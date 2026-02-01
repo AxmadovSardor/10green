@@ -82,22 +82,7 @@ function timer(day, params) {
             return "It's weekend! You are free. Enjoy your Saturday!";
         }
     }
-    function numtochar(num) {
-    switch (num) {
-        case 1:
-            return "monday";
-        case 2:
-            return "tuesday";
-        case 3:
-            return "wednesday";
-        case 4:
-            return "thursday";
-        case 5:
-            return "friday";
-        default:
-            return "unknown";
-    }
-}
+
     let organized =`
     Time table for ${numtochar(day)}: \n
     08:30 - 09:15 : ${params[0] || "Free"}\n
@@ -112,6 +97,23 @@ function timer(day, params) {
     At the moment ${currentLesson(day)}.
     `
     return organized;
+}
+
+function numtochar(num) {
+    switch (num) {
+        case 1:
+            return "monday";
+        case 2:
+            return "tuesday";
+        case 3:
+            return "wednesday";
+        case 4:
+            return "thursday";
+        case 5:
+            return "friday";
+        default:
+            return "unknown";
+    }
 }
 
 function fulltime(table) {
