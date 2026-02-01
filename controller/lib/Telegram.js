@@ -1,5 +1,5 @@
 const { axiosInstance } = require("./axios");
-const { organize } = require("./timetable");
+const { organizer } = require("./timetable");
 
 function sendMessages(messageObj, messageText) {
     // Telegram's chat id is usually at message.chat.id
@@ -111,15 +111,15 @@ async function handleMessage(messageObj) {
                     let day = messageText.replace("/timetable ", "").trim()
                     switch (day) {
                         case "monday":
-                            return sendMessages(messageObj, organize("monday"));
+                            return sendMessages(messageObj, organizer("monday"));
                         case "tuesday":
-                            return sendMessages(messageObj, organize("tuesday"));
+                            return sendMessages(messageObj, organizer("tuesday"));
                         case "wednesday":
-                            return sendMessages(messageObj, organize("wednesday"));
+                            return sendMessages(messageObj, organizer("wednesday"));
                         case "thursday":
-                            return sendMessages(messageObj, organize("thursday"));
+                            return sendMessages(messageObj, organizer("thursday"));
                         case "friday":
-                            return sendMessages(messageObj, organize("friday"));
+                            return sendMessages(messageObj, organizer("friday"));
                         default:
                             return sendMessages(messageObj, `Unknown day: ${day}`);
                     }
