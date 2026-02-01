@@ -121,7 +121,7 @@ function fulltime(table) {
     for (let i = 0; i < 5; i++) {
         let num = +i + 1
         let day = numtochar(num)
-        console.log(day, table.day)
+        console.log(day, table.$(day))
         full += `Time table for ${day}: \n
         08:30 - 09:15 : ${table.day[0] || "Free"}\n
         09:20 - 10:05 : ${table.day[1] || "Free"}\n
