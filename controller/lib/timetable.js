@@ -116,61 +116,59 @@ function numtochar(params) {
     }
 }
 
-let weekdays = [
-    "monday", "tuesday", "wednesday", "thursday", "friday"
-]
 
-function fulltime(table) {
+function fulltime() {
+    console.log(tengreen)
     let full = "Full time table: \n\n";
     full += `Time table for Monday: \n
-    08:30 - 09:15 : ${table.monday[0] || "Free"}\n
-    09:20 - 10:05 : ${table.monday[1] || "Free"}\n
-    10:10 - 10:55 : ${table.monday[2] || "Free"}\n
-    11:15 - 12:00 : ${table.monday[3] || "Free"}\n
-    12:05 - 12:50 : ${table.monday[4] || "Free"}\n
-    13:45 - 14:30 : ${table.monday[5] || "Free"}\n
-    14:30 - 15:15 : ${table.monday[6] || "Free"}\n
-    15:20 - 16:10 : ${table.monday[7] || "Free"}\n
+    08:30 - 09:15 : ${tengreen.monday[0] || "Free"}\n
+    09:20 - 10:05 : ${tengreen.monday[1] || "Free"}\n
+    10:10 - 10:55 : ${tengreen.monday[2] || "Free"}\n
+    11:15 - 12:00 : ${tengreen.monday[3] || "Free"}\n
+    12:05 - 12:50 : ${tengreen.monday[4] || "Free"}\n
+    13:45 - 14:30 : ${tengreen.monday[5] || "Free"}\n
+    14:30 - 15:15 : ${tengreen.monday[6] || "Free"}\n
+    15:20 - 16:10 : ${tengreen.monday[7] || "Free"}\n
     \n`;
     full += `Time table for Tuesday: \n
-    08:30 - 09:15 : ${table.Tuesday[0] || "Free"}\n
-    09:20 - 10:05 : ${table.Tuesday[1] || "Free"}\n
-    10:10 - 10:55 : ${table.Tuesday[2] || "Free"}\n
-    11:15 - 12:00 : ${table.Tuesday[3] || "Free"}\n
-    12:05 - 12:50 : ${table.Tuesday[4] || "Free"}\n
-    13:45 - 14:30 : ${table.Tuesday[5] || "Free"}\n
-    14:30 - 15:15 : ${table.Tuesday[6] || "Free"}\n
-    15:20 - 16:10 : ${table.Tuesday[7] || "Free"}\n
+    08:30 - 09:15 : ${tengreen.Tuesday[0] || "Free"}\n
+    09:20 - 10:05 : ${tengreen.Tuesday[1] || "Free"}\n
+    10:10 - 10:55 : ${tengreen.Tuesday[2] || "Free"}\n
+    11:15 - 12:00 : ${tengreen.Tuesday[3] || "Free"}\n
+    12:05 - 12:50 : ${tengreen.Tuesday[4] || "Free"}\n
+    13:45 - 14:30 : ${tengreen.Tuesday[5] || "Free"}\n
+    14:30 - 15:15 : ${tengreen.Tuesday[6] || "Free"}\n
+    15:20 - 16:10 : ${tengreen.Tuesday[7] || "Free"}\n
     \n`;
     full += `Time table for Wednesday: \n
-    08:30 - 09:15 : ${table.wednesday[0] || "Free"}\n
-    09:20 - 10:05 : ${table.wednesday[1] || "Free"}\n
-    10:10 - 10:55 : ${table.wednesday[2] || "Free"}\n
-    11:15 - 12:00 : ${table.wednesday[3] || "Free"}\n
-    12:05 - 12:50 : ${table.wednesday[4] || "Free"}\n
-    13:45 - 14:30 : ${table.wednesday[5] || "Free"}\n
-    14:30 - 15:15 : ${table.wednesday[6] || "Free"}\n
-    15:20 - 16:10 : ${table.wednesday[7] || "Free"}\n
+    08:30 - 09:15 : ${tengreen.wednesday[0] || "Free"}\n
+    09:20 - 10:05 : ${tengreen.wednesday[1] || "Free"}\n
+    10:10 - 10:55 : ${tengreen.wednesday[2] || "Free"}\n
+    11:15 - 12:00 : ${tengreen.wednesday[3] || "Free"}\n
+    12:05 - 12:50 : ${tengreen.wednesday[4] || "Free"}\n
+    13:45 - 14:30 : ${tengreen.wednesday[5] || "Free"}\n
+    14:30 - 15:15 : ${tengreen.wednesday[6] || "Free"}\n
+    15:20 - 16:10 : ${tengreen.wednesday[7] || "Free"}\n
     \n`;
             full += `Time table for Thursday: \n
-    08:30 - 09:15 : ${table.thursday[0] || "Free"}\n
-    09:20 - 10:05 : ${table.thursday[1] || "Free"}\n
-    10:10 - 10:55 : ${table.thursday[2] || "Free"}\n
-    11:15 - 12:00 : ${table.thursday[3] || "Free"}\n
-    12:05 - 12:50 : ${table.thursday[4] || "Free"}\n
-    13:45 - 14:30 : ${table.thursday[5] || "Free"}\n
-    14:30 - 15:15 : ${table.thursday[6] || "Free"}\n
-    15:20 - 16:10 : ${table.thursday[7] || "Free"}\n
+    08:30 - 09:15 : ${tengreen.thursday[0] || "Free"}\n
+    09:20 - 10:05 : ${tengreen.thursday[1] || "Free"}\n
+    10:10 - 10:55 : ${tengreen.thursday[2] || "Free"}\n
+    11:15 - 12:00 : ${tengreen.thursday[3] || "Free"}\n
+    12:05 - 12:50 : ${tengreen.thursday[4] || "Free"}\n
+    13:45 - 14:30 : ${tengreen.thursday[5] || "Free"}\n
+    14:30 - 15:15 : ${tengreen.thursday[6] || "Free"}\n
+    15:20 - 16:10 : ${tengreen.thursday[7] || "Free"}\n
     \n`;
     full += `Time table for Friday: \n
-    08:30 - 09:15 : ${table.friday[0] || "Free"}\n
-    09:20 - 10:05 : ${table.friday[1] || "Free"}\n
-    10:10 - 10:55 : ${table.friday[2] || "Free"}\n
-    11:15 - 12:00 : ${table.friday[3] || "Free"}\n
-    12:05 - 12:50 : ${table.friday[4] || "Free"}\n
-    13:45 - 14:30 : ${table.friday[5] || "Free"}\n
-    14:30 - 15:15 : ${table.friday[6] || "Free"}\n
-    15:20 - 16:10 : ${table.friday[7] || "Free"}\n
+    08:30 - 09:15 : ${tengreen.friday[0] || "Free"}\n
+    09:20 - 10:05 : ${tengreen.friday[1] || "Free"}\n
+    10:10 - 10:55 : ${tengreen.friday[2] || "Free"}\n
+    11:15 - 12:00 : ${tengreen.friday[3] || "Free"}\n
+    12:05 - 12:50 : ${tengreen.friday[4] || "Free"}\n
+    13:45 - 14:30 : ${tengreen.friday[5] || "Free"}\n
+    14:30 - 15:15 : ${tengreen.friday[6] || "Free"}\n
+    15:20 - 16:10 : ${tengreen.friday[7] || "Free"}\n
     \n`;
     return full;
 }
@@ -187,8 +185,8 @@ function organizer(day) {
             return timer(4, tengreen.thursday);
         case "friday":
             return timer(5, tengreen.friday);
-        // case "all":
-        //     return fulltime(tengreen);
+        case "all":
+            return fulltime();
         default:
             return "Unknown day";
     }
