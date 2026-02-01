@@ -105,7 +105,7 @@ async function handleMessage(messageObj) {
             //     return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
             case "timetable" || "timetable@tengtt_bot":
                 sendMessages(messageObj,"Here is the timetable:")
-                if (messageText.replace("/timetable", "").trim() === "") {
+                if (messageText.replace("/timetable", "").trim() === "all") {
                     return Timetable({ message: chatId });
                 }else{
                     let day = messageText.replace("/timetable ", "").trim()
@@ -120,6 +120,8 @@ async function handleMessage(messageObj) {
                             return sendMessages(messageObj, organizer("thursday"));
                         case "friday":
                             return sendMessages(messageObj, organizer("friday"));
+                        case "all":
+                            return sendMessages(messageObj, organizer("all"));
                         default:
                             return sendMessages(messageObj, `Unknown day: ${day}`);
                     }
