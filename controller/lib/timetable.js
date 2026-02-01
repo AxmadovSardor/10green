@@ -170,8 +170,8 @@ function organizer(day) {
             return timer(4, tengreen.thursday);
         case "friday":
             return timer(5, tengreen.friday);
-        case "all":
-            return fulltime(tengreen);
+        // case "all":
+        //     return fulltime(tengreen);
         default:
             return "Unknown day";
     }
