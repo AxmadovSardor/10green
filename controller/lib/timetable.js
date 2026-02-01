@@ -118,16 +118,18 @@ function numtochar(num) {
 
 function fulltime(table) {
     let full = "Full time table: \n\n";
-    for (let day in table) {
-        full += `Time table for ${numtochar(day)}: \n
-        08:30 - 09:15 : ${table[day][0] || "Free"}\n
-        09:20 - 10:05 : ${table[day][1] || "Free"}\n
-        10:10 - 10:55 : ${table[day][2] || "Free"}\n
-        11:15 - 12:00 : ${table[day][3] || "Free"}\n
-        12:05 - 12:50 : ${table[day][4] || "Free"}\n
-        13:45 - 14:30 : ${table[day][5] || "Free"}\n
-        14:30 - 15:15 : ${table[day][6] || "Free"}\n
-        15:20 - 16:10 : ${table[day][7] || "Free"}\n
+    for (let i = 1; i < 6; i++) {
+        let day = numtochar(i)
+
+        full += `Time table for ${day}: \n
+        08:30 - 09:15 : ${table.day[0] || "Free"}\n
+        09:20 - 10:05 : ${table.day[1] || "Free"}\n
+        10:10 - 10:55 : ${table.day[2] || "Free"}\n
+        11:15 - 12:00 : ${table.day[3] || "Free"}\n
+        12:05 - 12:50 : ${table.day[4] || "Free"}\n
+        13:45 - 14:30 : ${table.day[5] || "Free"}\n
+        14:30 - 15:15 : ${table.day[6] || "Free"}\n
+        15:20 - 16:10 : ${table.day[7] || "Free"}\n
         \n`;
     }
     return full;
