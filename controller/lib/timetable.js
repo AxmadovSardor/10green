@@ -119,7 +119,7 @@ function numtochar(num) {
 function fulltime(table) {
     let full = "Full time table: \n\n";
     for (let i = 0; i < 5; i++) {
-        let num = i+1
+        let num = +i + 1
         let day = numtochar(num)
 
         full += `Time table for ${day}: \n
