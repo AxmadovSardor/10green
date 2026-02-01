@@ -125,7 +125,7 @@ async function handleMessage(messageObj) {
                 return sendMessages(messageObj, "Available commands: /start, /timetable");
             case "asad@tengtt_bot":
                 try {
-                    return sendMtoAsad(messageText.replace("/asad ", ""));
+                    return sendMtoAsad(messageText.replace("/asad@tengtt_bot ", ""));
                 } catch (err) {
                     console.log(err)
                     return sendMessages(messageObj, "nimadur")
@@ -133,7 +133,7 @@ async function handleMessage(messageObj) {
             case "toUser@tengtt_bot":
                 sendMessages(messageObj, "Sent!")
                 try{
-                    return sendMtoUser(messageText.replace("/toUser ", "").split(":")[0], messageText.replace("/toUser ", "").replace(messageText.replace("/toUser ", "").split(":")[0], "Admin"));
+                    return sendMtoUser(messageText.replace("/toUser@tengtt_bot ", "").split(":")[0], messageText.replace("/toUser@tengtt_bot ", "").replace(messageText.replace("/toUser@tengtt_bot ", "").split(":")[0], "Admin"));
                 } catch (err) {
                     console.log(err)
                     sendMessages(messageObj, "nimadur xato")
@@ -142,10 +142,10 @@ async function handleMessage(messageObj) {
                 return question(messageObj, messageText.replace("/ques ", ""));
             case "timetable@tengtt_bot":
                 sendMessages(messageObj,"Here is the timetable:")
-                if (messageText.replace("/timetable", "").trim() === "") {
+                if (messageText.replace("/timetable@tengtt_bot", "").trim() === "") {
                     return Timetable({ message: chatId });
                 }else{
-                    let day = messageText.replace("/timetable ", "").trim()
+                    let day = messageText.replace("/timetable@tengtt_bot ", "").trim()
                     switch (day) {
                         case "monday":
                             return sendMessages(messageObj, organizer("monday"));
