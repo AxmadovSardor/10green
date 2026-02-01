@@ -99,40 +99,62 @@ function timer(day, params) {
     return organized;
 }
 
-function numtochar(num) {
-    switch (num) {
-        case 1:
-            return "monday";
-        case 2:
-            return "tuesday";
-        case 3:
-            return "wednesday";
-        case 4:
-            return "thursday";
-        case 5:
-            return "friday";
-        default:
-            return "unknown";
-    }
-}
+let weekdays = [
+    "monday", "tuesday", "wednesday", "thursday", "friday"
+]
 
 function fulltime(table) {
     let full = "Full time table: \n\n";
-    for (let i = 0; i < 5; i++) {
-        let num = +i + 1
-        let day = numtochar(num)
-        console.log(day, table.$(day))
-        full += `Time table for ${day}: \n
-        08:30 - 09:15 : ${table.day[0] || "Free"}\n
-        09:20 - 10:05 : ${table.day[1] || "Free"}\n
-        10:10 - 10:55 : ${table.day[2] || "Free"}\n
-        11:15 - 12:00 : ${table.day[3] || "Free"}\n
-        12:05 - 12:50 : ${table.day[4] || "Free"}\n
-        13:45 - 14:30 : ${table.day[5] || "Free"}\n
-        14:30 - 15:15 : ${table.day[6] || "Free"}\n
-        15:20 - 16:10 : ${table.day[7] || "Free"}\n
-        \n`;
-    }
+    full += `Time table for Monday: \n
+    08:30 - 09:15 : ${table.monday[0] || "Free"}\n
+    09:20 - 10:05 : ${table.monday[1] || "Free"}\n
+    10:10 - 10:55 : ${table.monday[2] || "Free"}\n
+    11:15 - 12:00 : ${table.monday[3] || "Free"}\n
+    12:05 - 12:50 : ${table.monday[4] || "Free"}\n
+    13:45 - 14:30 : ${table.monday[5] || "Free"}\n
+    14:30 - 15:15 : ${table.monday[6] || "Free"}\n
+    15:20 - 16:10 : ${table.monday[7] || "Free"}\n
+    \n`;
+    full += `Time table for Tuesday: \n
+    08:30 - 09:15 : ${table.Tuesday[0] || "Free"}\n
+    09:20 - 10:05 : ${table.Tuesday[1] || "Free"}\n
+    10:10 - 10:55 : ${table.Tuesday[2] || "Free"}\n
+    11:15 - 12:00 : ${table.Tuesday[3] || "Free"}\n
+    12:05 - 12:50 : ${table.Tuesday[4] || "Free"}\n
+    13:45 - 14:30 : ${table.Tuesday[5] || "Free"}\n
+    14:30 - 15:15 : ${table.Tuesday[6] || "Free"}\n
+    15:20 - 16:10 : ${table.Tuesday[7] || "Free"}\n
+    \n`;
+    full += `Time table for Wednesday: \n
+    08:30 - 09:15 : ${table.wednesday[0] || "Free"}\n
+    09:20 - 10:05 : ${table.wednesday[1] || "Free"}\n
+    10:10 - 10:55 : ${table.wednesday[2] || "Free"}\n
+    11:15 - 12:00 : ${table.wednesday[3] || "Free"}\n
+    12:05 - 12:50 : ${table.wednesday[4] || "Free"}\n
+    13:45 - 14:30 : ${table.wednesday[5] || "Free"}\n
+    14:30 - 15:15 : ${table.wednesday[6] || "Free"}\n
+    15:20 - 16:10 : ${table.wednesday[7] || "Free"}\n
+    \n`;
+            full += `Time table for Thursday: \n
+    08:30 - 09:15 : ${table.thursday[0] || "Free"}\n
+    09:20 - 10:05 : ${table.thursday[1] || "Free"}\n
+    10:10 - 10:55 : ${table.thursday[2] || "Free"}\n
+    11:15 - 12:00 : ${table.thursday[3] || "Free"}\n
+    12:05 - 12:50 : ${table.thursday[4] || "Free"}\n
+    13:45 - 14:30 : ${table.thursday[5] || "Free"}\n
+    14:30 - 15:15 : ${table.thursday[6] || "Free"}\n
+    15:20 - 16:10 : ${table.thursday[7] || "Free"}\n
+    \n`;
+    full += `Time table for Friday: \n
+    08:30 - 09:15 : ${table.friday[0] || "Free"}\n
+    09:20 - 10:05 : ${table.friday[1] || "Free"}\n
+    10:10 - 10:55 : ${table.friday[2] || "Free"}\n
+    11:15 - 12:00 : ${table.friday[3] || "Free"}\n
+    12:05 - 12:50 : ${table.friday[4] || "Free"}\n
+    13:45 - 14:30 : ${table.friday[5] || "Free"}\n
+    14:30 - 15:15 : ${table.friday[6] || "Free"}\n
+    15:20 - 16:10 : ${table.friday[7] || "Free"}\n
+    \n`;
     return full;
 }
 
