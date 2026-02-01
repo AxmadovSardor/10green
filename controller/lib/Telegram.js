@@ -80,9 +80,9 @@ async function handleMessage(messageObj) {
         const command = messageText.substr(1).split(" ")[0];
         console.log("Received command:", command);
         switch (command) {
-            case "start" || "start@tengtt_bot":
+            case "start":
                 return sendMessages(messageObj, "Welcome! Use /help to see available commands.");
-            case "help" || "help@tengtt_bot":
+            case "help":
                 return sendMessages(messageObj, "Available commands: /start, /timetable");
             case "asad":
                 try {
@@ -103,9 +103,9 @@ async function handleMessage(messageObj) {
                 return question(messageObj, messageText.replace("/ques ", ""));
             // case "photo":
             //     return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
-            case "timetable" || "timetable@tengtt_bot":
+            case "timetable":
                 sendMessages(messageObj,"Here is the timetable:")
-                if (messageText.replace("/timetable", "").trim() === "all") {
+                if (messageText.replace("/timetable", "").trim() === "") {
                     return Timetable({ message: chatId });
                 }else{
                     let day = messageText.replace("/timetable ", "").trim()
@@ -127,7 +127,7 @@ async function handleMessage(messageObj) {
                     }
                 }
             case "updatelog":
-                return sendMessages(messageObj, "Bot currently runs on 1.02 published 01.02.2026 \n \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
+                return sendMessages(messageObj, "Bot currently runs on 1.02 published 01.02.2026 at 20:54 \n \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
 
             default:
                 return sendMessages(messageObj, `Unknown command: ${command}`);
