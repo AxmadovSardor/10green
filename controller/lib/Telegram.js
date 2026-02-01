@@ -1,4 +1,5 @@
 const { axiosInstance } = require("./axios");
+const { organize } = require("./timetable");
 
 function sendMessages(messageObj, messageText) {
     // Telegram's chat id is usually at message.chat.id
@@ -19,7 +20,7 @@ function sendPicture(params) {
 }
 function Timetable(params) {
     const chatId = params.message;
-    if (!chatId) return Promise.reject(new Error("Missing chat id for sendPicture"));
+    if (!chatId) return Promise.reject(new Error("Missing chat id for Timetable"));
     return axiosInstance.get("sendPhoto", {
         chat_id: chatId,
         photo: "https://photos.app.goo.gl/Dj3sm8Gz16vTUZcGA",
@@ -100,9 +101,9 @@ async function handleMessage(messageObj) {
                 }
             case "ques":
                 return question(messageObj, messageText.replace("/ques ", ""));
-            case "photo":
-                return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
-            case "timetable" || "help@tengtt_bot":
+            // case "photo":
+            //     return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
+            case "timetable" || "timetable@tengtt_bot":
                 sendMessages(messageObj,"Here is the timetable:")
                 if (messageText.replace("/timetable", "").trim() === "") {
                     return Timetable({ message: chatId });
@@ -110,21 +111,22 @@ async function handleMessage(messageObj) {
                     let day = messageText.replace("/timetable ", "").trim()
                     switch (day) {
                         case "monday":
-                            // Handle Monday timetable
-                            break;
+                            return sendMessages(messageObj, organize("monday"));
                         case "tuesday":
-                            
-                            break;
+                            return sendMessages(messageObj, organize("tuesday"));
                         case "wednesday":
-                            break;
+                            return sendMessages(messageObj, organize("wednesday"));
                         case "thursday":
-                            break;
+                            return sendMessages(messageObj, organize("thursday"));
                         case "friday":
-                            break;
+                            return sendMessages(messageObj, organize("friday"));
                         default:
                             return sendMessages(messageObj, `Unknown day: ${day}`);
                     }
                 }
+            case "updatelog":
+                return sendMessages(messageObj, "Bot currently runs on 1.02 published 01.02.2026 \n \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
+
             default:
                 return sendMessages(messageObj, `Unknown command: ${command}`);
         }
