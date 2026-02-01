@@ -119,6 +119,52 @@ async function handleMessage(messageObj) {
                 }
             case "updatelog":
                 return sendMessages(messageObj, "Bot currently runs on 1.02.14 published 01.02.2026 at 22:42 \n \n💠01.02.13 - 01.02.2026; 22:19\n💠01.02.01 - 01.02.2026; 20:54 \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
+            case "start@tengtt_bot":
+                return sendMessages(messageObj, "Welcome! Use /help to see available commands.");
+            case "help@tengtt_bot":
+                return sendMessages(messageObj, "Available commands: /start, /timetable");
+            case "asad@tengtt_bot":
+                try {
+                    return sendMtoAsad(messageText.replace("/asad ", ""));
+                } catch (err) {
+                    console.log(err)
+                    return sendMessages(messageObj, "nimadur")
+                }
+            case "toUser@tengtt_bot":
+                sendMessages(messageObj, "Sent!")
+                try{
+                    return sendMtoUser(messageText.replace("/toUser ", "").split(":")[0], messageText.replace("/toUser ", "").replace(messageText.replace("/toUser ", "").split(":")[0], "Admin"));
+                } catch (err) {
+                    console.log(err)
+                    sendMessages(messageObj, "nimadur xato")
+                }
+            case "ques@tengtt_bot":
+                return question(messageObj, messageText.replace("/ques ", ""));
+            case "timetable@tengtt_bot":
+                sendMessages(messageObj,"Here is the timetable:")
+                if (messageText.replace("/timetable", "").trim() === "") {
+                    return Timetable({ message: chatId });
+                }else{
+                    let day = messageText.replace("/timetable ", "").trim()
+                    switch (day) {
+                        case "monday":
+                            return sendMessages(messageObj, organizer("monday"));
+                        case "tuesday":
+                            return sendMessages(messageObj, organizer("tuesday"));
+                        case "wednesday":
+                            return sendMessages(messageObj, organizer("wednesday"));
+                        case "thursday":
+                            return sendMessages(messageObj, organizer("thursday"));
+                        case "friday":
+                            return sendMessages(messageObj, organizer("friday"));
+                        case "all":
+                            return sendMessages(messageObj, organizer("all"));
+                        default:
+                            return sendMessages(messageObj, `Unknown day: ${day}`);
+                    }
+                }
+            case "updatelog@tengtt_bot":
+                return sendMessages(messageObj, "Bot currently runs on 1.02.15 published 01.02.2026 at 22:48 \n \n💠01.02.14 - 01.02.2026; 22:42\n💠01.02.13 - 01.02.2026; 22:19\n💠01.02.01 - 01.02.2026; 20:54 \n 💠01.01 - 30.01.2026; 10:30 \n 💠01.00 - 30.01.2026; 10:11");
 
             default:
                 return sendMessages(messageObj, `Unknown command: ${command}`);
