@@ -101,8 +101,8 @@ async function handleMessage(messageObj) {
                 }
             case "ques":
                 return question(messageObj, messageText.replace("/ques ", ""));
-            // case "photo":
-            //     return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
+            case "photo":
+                return sendPicture({ message: messageObj, photo: messageText.replace("/photo ", "") });
             case "timetable":
                 sendMessages(messageObj,"Here is the timetable:")
                 if (messageText.replace("/timetable", "").trim() === "") {
